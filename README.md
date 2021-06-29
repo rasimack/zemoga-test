@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+# Zemoga Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This the app url, which is hosted in netlify (https://ruleofthumb-zemoga.netlify.app)
 
-## Available Scripts
+## Available Scripts to run locally
 
 In the project directory, you can run:
 
