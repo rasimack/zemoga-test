@@ -99,7 +99,7 @@ const Description = styled.div`
   display: grid;
   grid-template-rows: repeat(4, auto);
   color: white;
-  margin-left: 250px;
+  margin-left: ${(props) => (props.gridLayout === "list" ? "250px" : "0")};
 
   h2 {
     color: white;
