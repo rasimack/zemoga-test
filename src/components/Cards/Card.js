@@ -128,13 +128,16 @@ const Description = styled.div`
     }
   }
 
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.0001) 0%,
-    #888888 19.79%,
-    #666666 50%,
-    rgba(51, 51, 51, 0.6) 71.88%
-  );
+  background: ${(props) =>
+    props.gridLayout === "list" &&
+    `linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.0001) 0%,
+      #888888 19.79%,
+      #666666 50%,
+      rgba(51, 51, 51, 0.6) 71.88%
+    );`};
+    
 `;
 
 const PoolWrapper = styled.div`
