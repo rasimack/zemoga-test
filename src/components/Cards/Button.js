@@ -23,6 +23,10 @@ export const Button = ({ setGridLayout }) => {
 };
 
 const Container = styled.div`
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+
   button {
     width: 173px;
     height: 36px;
@@ -33,6 +37,5 @@ const Container = styled.div`
 const ButtonList = styled.div`
   display: flex;
   flex-direction: column;
-
   position: absolute;
 `;

@@ -19,8 +19,6 @@ export const Card = ({ item, gridLayout }) => {
   const lastTimeUpdate = (timeUpdated) => {
     let difference = moment().diff(moment(timeUpdated), "days");
 
-    console.log(typeof difference);
-
     if (difference > 30 && difference < 365) {
       return `${moment().diff(moment(timeUpdated), "months")} months ago`;
     }
@@ -34,8 +32,7 @@ export const Card = ({ item, gridLayout }) => {
 
   return (
     <Container picture={item.picture} gridLayout={gridLayout}>
-      {console.log(item)}
-      <Description>
+      <Description gridLayout={gridLayout}>
         {isLiked()}
         <div className="title-wrapper">
           <label>{item.name}</label>
@@ -70,20 +67,39 @@ export const Card = ({ item, gridLayout }) => {
 };
 
 const Container = styled.div`
+  @media only screen and (max-width: 500px) {
+    width: 348px;
+    height: 348px;
+    background-size: auto auto;
+  }
+
   width: ${(props) => (props.gridLayout === "list" ? "100%" : "348px")};
   height: ${(props) => (props.gridLayout === "list" ? "170px" : "348px")};
   left: 170px;
   top: 950px;
-  background-image: url(${(props) => props.picture});
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.0001) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url(${(props) => props.picture});
+  background-repeat: no-repeat;
+  background-size: ${(props) =>
+    props.gridLayout === "list" ? "267px 100%" : "auto auto"};
+  background-position: , right;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 `;
 
 const Description = styled.div`
+  @media only screen and (max-width: 500px) {
+    margin-left: 0;
+  }
   display: grid;
   grid-template-rows: repeat(4, auto);
   color: white;
+  margin-left: 250px;
 
   h2 {
     color: white;
@@ -98,7 +114,27 @@ const Description = styled.div`
 
   .vote-wrapper {
     display: flex;
+
+    button {
+      width: 135px;
+      height: 35px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
   }
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    #888888 19.79%,
+    #666666 50%,
+    rgba(51, 51, 51, 0.6) 71.88%
+  );
 `;
 
 const PoolWrapper = styled.div`
